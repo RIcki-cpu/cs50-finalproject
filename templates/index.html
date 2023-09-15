@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1>How do you feel today</h1>
+
+         <!-- Main Input For Receiving LLM response -->
+
+        <form action="/"method="post">
+            <!--USER INPUT AREA-->
+            <div class="row form-floating">
+              <!--label for="user_input" class="form-label">Introduce answer:</label-->
+              <textarea class="form-control" id = "user_input" placeholder = "I feel lost and i need help"name="user_input" style="height: 100px"></textarea>
+              <label for="user_input">Your answer</label>
+            </div>           
+            <!--ORIGINALITY RANGE 1-10 -->
+            <div class="row">
+                <div class="col">
+                    <label for="temperature" class="form-label">Originality</label>
+                </div>
+                <div class="col">            
+                    <input type="range" class="form-range" name="temperature" min="0" max="10" id="temperature">
+                </div>
+            </div>
+            <!--SELECT PERSONALITY-->
+            <div class="row">
+                <div class="col">         
+                    <label for="personality">Personality</label>
+                </div>
+                <div class="col">
+                    <select class="form-select" name="personality" id="personality" aria-label="Default select example">
+                    <option selected>Select the character</option>
+                    <option value="1">Psychologist(Default)</option>
+                    <option value="2">Buhdist Monk</option>
+                    <option value="3">Steven Hawking</option>
+                </div>
+            </div>
+            </select>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Send Message</button>
+        </form>
+    </div>
+    <div class="container text-center">
+      <div class="row align-items-start">
+        <div class="col">
+          <h3>AdviceGPT:</h3>
+        </div>
+        <div class="col">
+          {{ answer_text }}
+        </div>
+      </div>
+      <div class="row align-items-start">
+        <div class="col">
+          <h3>Emotions:</h3>
+        </div>
+        <div class="col">
+          <p><i class="fa-solid fa-face-frown"></i></p>
+        </div>
+      </div>
+      <div class="row align-items-start">
+        <div class="col">
+          <h3>Positivism:</h3>
+        </div>
+        <div class="col">
+          <span class="badge text-bg-info">Info</span>
+          <span class="badge text-bg-info">Info</span>
+          <span class="badge text-bg-info">Info</span>
+          <span class="badge text-bg-info">Info</span>
+        </div>
+      </div>
+
+    </div>
+      
+      <!--span class = "sr-only">40% Complete</span>
+   </div>
+    </div>
+    <br>
+     <div id="loading" style="display: none;">
+        <p>Loading...</p>
+        <div class="progress">
+            <div class="indeterminate"></div>
+        </div>
+    </div-->
+    
+{% endblock %}
+<!--input type="text" name="user_input" placeholder="How do you feel Today ?" required="required" /-->
