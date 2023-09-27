@@ -1,0 +1,5 @@
+# Ignore the MySQL data directory
+mysql-data/
+
+# Ignore the file with the OPENAI private key
+openai_key.txt

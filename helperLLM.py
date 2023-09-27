@@ -8,6 +8,7 @@ from langchain.chains import LLMChain
 from langchain.callbacks import get_openai_callback
 from langchain.output_parsers import StructuredOutputParser, ResponseSchema
 
+
 import prompt_templates as templates
 
 template_personalities = templates.personalities
@@ -32,6 +33,24 @@ def get_reply_chatbot(personality, input_text, randomness = 0.0):
                         wellbeing_level,
                         chat_answer]
 
+def read_OPENAI_KEY():
+    '''Here you must import your personal private OPENAI_API_KEY at  https://openai.com/product '''
+    file_path = "openai_key.txt"  # Replace with the path to your text file
+    try:
+        with open(file_path, "r") as file:
+            # Read the first line
+            openai_api_key= file.readline()
+            
+            # Close the file
+            file.close()
+
+        return openai_api_key
+    except FileNotFoundError:
+        print("File not found. Please provide a txt file with your openai_api_key.")
+    except Exception as e:
+        print("An error occurred:", str(e))
+
+
 
     # FORMAT OUTPUT 
     output_parser = StructuredOutputParser.from_response_schemas(response_schemas)
@@ -50,7 +69,7 @@ def get_reply_chatbot(personality, input_text, randomness = 0.0):
 
     #CHAIN DEFINITION using randomness parameter as temperature 
     chain = LLMChain(
-    llm=ChatOpenAI(temperature = randomness, openai_api_key="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"),
+    llm=ChatOpenAI(temperature = randomness, openai_api_key=read_OPENAI_KEY()),
     prompt=chat_prompt,
     )
 
