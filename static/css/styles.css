@@ -5,10 +5,9 @@ body {
 
 body {
   display: flex;
-  align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  flex-direction: column; /* Make it a column layout */
   background-color: #f5f5f5;
+  justify-content: space-between; /* Align items to the top and bottom */
 }
 
 .form-signin {
