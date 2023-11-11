@@ -7,8 +7,7 @@ profile page for updated information or more...
 
 I struggled the most with things I shouldn't have struggled with. Anyway, I hope you find it helpful
 
-
-
+## Video Demo: https://youtu.be/9en6rwcyRPE
 Made by Richi
 
 ![Image text](./static/assets/logo.PNG)
